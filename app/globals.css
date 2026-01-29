@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+button {
+  @apply cursor-pointer;
+}
+
+.section {
+  @apply min-h-svh flex container mx-auto;
+}
