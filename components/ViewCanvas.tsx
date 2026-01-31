@@ -1,10 +1,11 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
+import { Environment, Float } from "@react-three/drei";
 
 // Component
 import Can from "./Can";
-import { Environment } from "@react-three/drei";
+import FloatingCan from "./FloatingCan";
 
 const ViewCanvas = () => {
   return (
@@ -16,17 +17,17 @@ const ViewCanvas = () => {
         transform: "translateX(-50%)",
         overflow: "hidden",
         pointerEvents: "none",
-        zIndex: 30,
+        zIndex: -1,
       }}
       shadows
-        dpr={[1, 1.5]}
-        gl={{ antialias: true }}
-        camera={{
-          fov: 30,
-        }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: true }}
+      camera={{
+        fov: 30,
+      }}
     >
-      <Can />
-      <Environment files="/hdr/field.hdr" />
+      <FloatingCan />
+      <Environment files="/hdr/field.hdr" environmentIntensity={1.5} />
     </Canvas>
   );
 };

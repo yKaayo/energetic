@@ -24,7 +24,7 @@ export type SodaCanProps = {
 };
 
 export default function Can({
-  flavor = "texture1",
+  flavor,
   scale = 2,
   ...props
 }: SodaCanProps) {
@@ -37,7 +37,12 @@ export default function Can({
   const label = labels[flavor];
 
   return (
-    <group {...props} dispose={null} scale={scale} rotation={[0, -Math.PI, 0]}>
+    <group
+      {...props}
+      dispose={null}
+      scale={scale}
+      rotation={[0, -Math.PI * 1.2, 0]}
+    >
       <mesh
         castShadow
         receiveShadow
