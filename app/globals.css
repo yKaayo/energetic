@@ -1,9 +1,31 @@
 @import "tailwindcss";
 
+@theme {
+  --color-purple-light: #7130f0;
+  --color-blue-dark: #0a0820;
+  --color-gray-light: #e5e5e5;
+}
+
 button {
   @apply cursor-pointer;
 }
 
 .section {
-  @apply min-h-svh flex container mx-auto;
+  @apply container mx-auto flex min-h-svh;
+}
+
+.headline {
+  @apply text-4xl font-bold sm:text-6xl md:text-8xl;
+
+  & span {
+    @apply text-white drop-shadow-[0_2px_2px_#0A0820];
+  }
+}
+
+.paragraph {
+  @apply mt-3 sm:text-2xl md:text-3xl;
+}
+
+.btn {
+  @apply bg-blue-dark text-gray-light mt-7 cursor-pointer rounded-lg px-3 py-1 text-lg font-bold sm:px-5 sm:py-2 sm:text-xl md:px-7 md:py-3 md:text-2xl;
 }

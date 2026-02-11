@@ -23,25 +23,20 @@ export type SodaCanProps = {
   scale?: number;
 };
 
-export default function Can({
-  flavor,
-  scale = 2,
-  ...props
-}: SodaCanProps) {
+export default function Can({ flavor, scale = 2, ...props }: SodaCanProps) {
   const { nodes } = useGLTF("/model/Soda-can.gltf");
 
   const labels = useTexture(flavorTextures);
+  const label = flavor ? labels[flavor] : undefined;
 
   [1, 2, 3, 4, 5].forEach((num) => (labels[`texture${num}`].flipY = false));
-
-  const label = labels[flavor];
 
   return (
     <group
       {...props}
       dispose={null}
       scale={scale}
-      rotation={[0, -Math.PI * 1.2, 0]}
+      rotation={[0, -Math.PI * 1.25, 0]}
     >
       <mesh
         castShadow
