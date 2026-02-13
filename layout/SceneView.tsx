@@ -8,13 +8,13 @@ import ViewCanvas from "@/components/ViewCanvas";
 
 const SceneView = () => {
   return (
-    <div className="-z-1 relative">
+    <>
       <ViewCanvas />
 
-      <View className="h-screen w-screen z-50 hidden md:block fixed top-0 left-0 overflow-hidden">
+      <View className="fixed top-0 left-0 hidden h-screen w-screen overflow-hidden md:block">
         <Scene />
       </View>
-    </div>
+    </>
   );
 };
 

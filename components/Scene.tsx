@@ -13,9 +13,11 @@ import FloatingCan from "@/components/FloatingCan";
 
 // Context
 import { useSections } from "@/contexts/SectionsContext";
+import { useScene } from "@/contexts/Scene";
 
 const Scene = () => {
   const { heroRef } = useSections();
+  const { isReady } = useScene();
 
   const can1Ref = useRef<Group>(null);
   const can2Ref = useRef<Group>(null);
@@ -58,8 +60,8 @@ const Scene = () => {
   const heroScrollAnimation = () => {
     const scrollTl = gsap.timeline({
       defaults: {
-        duration: 2.5,
-        ease: "power4.inOut",
+        duration: 3,
+        ease: "power3.inOut",
       },
       scrollTrigger: {
         trigger: heroRef.current,
@@ -106,6 +108,8 @@ const Scene = () => {
       !groupRef.current
     )
       return;
+
+    isReady();
 
     initialPosition();
     initialAnimation();
