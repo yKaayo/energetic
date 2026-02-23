@@ -6,26 +6,27 @@ import { Suspense } from "react";
 
 const ViewCanvas = () => {
   return (
-      <Canvas
-        style={{
-          position: "fixed",
-          top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-        }}
-        shadows
-        dpr={[1, 1.5]}
-        gl={{ antialias: true }}
-        camera={{
-          fov: 30,
-        }}
-      >
-        <Suspense fallback={null}>
-          <View.Port />
-        </Suspense>
+    <Canvas
+      style={{
+        height: "100vh",
+        position: "fixed",
+        inset: 0,
+        overflow: "visible",
+      }}
+      shadows
+      dpr={[1, 1.5]}
+      gl={{ antialias: true }}
+      camera={{
+        position: [0, 0, 5.15],
+        fov: 30,
+      }}
+    >
+      <Suspense fallback={null}>
+        <View.Port />
+      </Suspense>
 
-        {/* <Stats /> */}
-      </Canvas>
+      {/* <Stats /> */}
+    </Canvas>
   );
 };
 

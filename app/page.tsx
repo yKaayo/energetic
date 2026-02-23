@@ -8,6 +8,7 @@ import LiquidChrome from "@/components/LiquidChrome";
 
 // Context
 import AppProvider from "@/contexts/AppProvider";
+import Fall from "@/layout/Fall";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       />
       <Hero />
       <Flavors />
+      <Fall />
     </AppProvider>
   );
 }

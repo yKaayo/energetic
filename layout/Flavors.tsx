@@ -2,16 +2,16 @@
 
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
-import { useRef } from "react";
 
 // Lib
 import gsap from "@/lib/gsap";
 
-// Context
+// Contexts
 import { useScene } from "@/contexts/Scene";
+import { useSections } from "@/contexts/SectionsContext";
 
 const Flavors = () => {
-  const flavorsRef = useRef(null);
+  const { flavorsRef } = useSections();
 
   const { ready } = useScene();
 
@@ -56,7 +56,7 @@ const Flavors = () => {
   );
 
   return (
-    <section ref={flavorsRef} className="section items-center">
+    <section ref={flavorsRef} className="section items-center overflow-visible">
       {/* Text */}
       <div className="flex flex-col md:w-1/2">
         <h2 className="headline">

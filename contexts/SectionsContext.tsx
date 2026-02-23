@@ -4,6 +4,8 @@ import { createContext, useContext, useRef } from "react";
 
 type SectionsContextType = {
   heroRef: React.RefObject<HTMLDivElement | null>;
+  flavorsRef: React.RefObject<HTMLDivElement | null>;
+  sceneViewRef: React.RefObject<HTMLDivElement | null>;
 };
 
 const SectionsContext = createContext<SectionsContextType | null>(null);
@@ -14,9 +16,11 @@ type Props = {
 
 export function SectionsProvider({ children }: Props) {
   const heroRef = useRef<HTMLDivElement>(null);
+  const flavorsRef = useRef<HTMLDivElement>(null);
+  const sceneViewRef = useRef<HTMLDivElement>(null);
 
   return (
-    <SectionsContext.Provider value={{ heroRef }}>
+    <SectionsContext.Provider value={{ heroRef, flavorsRef, sceneViewRef }}>
       {children}
     </SectionsContext.Provider>
   );

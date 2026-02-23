@@ -16,7 +16,7 @@ import { useSections } from "@/contexts/SectionsContext";
 import { useScene } from "@/contexts/Scene";
 
 const Scene = () => {
-  const { heroRef } = useSections();
+  const { heroRef, flavorsRef, sceneViewRef } = useSections();
   const { isReady } = useScene();
 
   const can1Ref = useRef<Group>(null);
@@ -95,6 +95,20 @@ const Scene = () => {
       );
   };
 
+  const pinScene = () => {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        endTrigger: flavorsRef.current,
+        end: "top top",
+        scrub: true,
+        pin: sceneViewRef.current,
+        pinSpacing: false,
+      },
+    });
+  };
+
   useGSAP(() => {
     if (
       !heroRef.current ||
@@ -114,6 +128,7 @@ const Scene = () => {
     initialPosition();
     initialAnimation();
     heroScrollAnimation();
+    pinScene();
   });
 
   return (
