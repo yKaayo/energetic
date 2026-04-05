@@ -2,6 +2,9 @@
 
 import { Environment, View } from "@react-three/drei";
 
+// Lib
+import gsap from "@/lib/gsap";
+
 // Components
 import Can from "@/components/Can";
 import { useGSAP } from "@gsap/react";
