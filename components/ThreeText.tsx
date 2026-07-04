@@ -16,7 +16,7 @@ const ThreeText = ({ sentence }: ThreeTextProps) => {
 
   const material = useMemo(
     () =>
-      new THREE.MeshLambertMaterial({
+      new THREE.MeshBasicMaterial({
         color: "white",
       }),
     [],
@@ -28,8 +28,9 @@ const ThreeText = ({ sentence }: ThreeTextProps) => {
       anchorX="center"
       anchorY="middle"
       scale={isDesktop ? 0.8 : 0.5}
-      // material={material}
+      material={material}
       color="white"
+      fontWeight="bold"
     >
       {word.toUpperCase()}
     </Text>

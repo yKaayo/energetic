@@ -86,8 +86,7 @@ const Fall = () => {
       )
       .to(canRef.current.position, {
         ...getPositions(4),
-        duration: 0.5,
-        ease: "back.in(1.7)",
+        ease: "back.inOut",
       });
   };
 
@@ -102,7 +101,7 @@ const Fall = () => {
   );
 
   return (
-    <section ref={fallRef} className="min-h-[200vh]">
+    <section ref={fallRef} className="min-h-[150vh]">
       <View className="h-screen w-full">
         <group rotation={[Math.PI / 10, -Math.PI / 9, Math.PI / 5]}>
           <FloatingCan

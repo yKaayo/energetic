@@ -3,14 +3,14 @@
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
-useGLTF.preload("/model/Soda-can.gltf");
+// Constants
+import {
+  FLAVOR_IDS,
+  FLAVOR_TEXTURES,
+  type FlavorKey,
+} from "@/constants/flavors";
 
-const flavorTextures = Object.fromEntries(
-  [1, 2, 3, 4, 5].map((num) => [
-    `texture${num}`,
-    `/textures/texture${num}.png`,
-  ]),
-);
+useGLTF.preload("/model/Soda-can.gltf");
 
 const metalMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.3,
@@ -19,17 +19,18 @@ const metalMaterial = new THREE.MeshStandardMaterial({
 });
 
 export type SodaCanProps = {
-  flavor?: keyof typeof flavorTextures;
+  flavor?: FlavorKey;
   scale?: number;
 };
 
 export default function Can({ flavor, scale = 2, ...props }: SodaCanProps) {
   const { nodes } = useGLTF("/model/Soda-can.gltf");
 
-  const labels = useTexture(flavorTextures);
+  const labels = useTexture(FLAVOR_TEXTURES);
   const label = flavor ? labels[flavor] : undefined;
 
-  [1, 2, 3, 4, 5].forEach((num) => (labels[`texture${num}`].flipY = false));
+  // Invert the texture 90 degrees
+  FLAVOR_IDS.forEach((num) => (labels[`texture${num}`].flipY = false));
 
   return (
     <group
