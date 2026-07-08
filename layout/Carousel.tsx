@@ -30,6 +30,7 @@ const Carousel = () => {
     const tl = gsap.timeline({
       onStart: () => setIsAnimating(true),
       onComplete: () => setIsAnimating(false),
+      invalidateOnRefresh: true,
     });
 
     tl.to(

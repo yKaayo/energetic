@@ -7,4 +7,5 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
+export {ScrollTrigger}
 export default gsap;

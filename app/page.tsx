@@ -4,6 +4,7 @@ import Hero from "@/layout/Hero";
 import SceneView from "@/layout/SceneView";
 import Fall from "@/layout/Fall";
 import Carousel from "@/layout/Carousel";
+import Info from "@/layout/Info";
 
 // Component
 import LiquidChrome from "@/components/LiquidChrome";
@@ -25,6 +26,7 @@ export default function Home() {
       <Flavors />
       <Fall />
       <Carousel />
+      <Info />
     </AppProvider>
   );
 }

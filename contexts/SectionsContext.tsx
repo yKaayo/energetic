@@ -7,7 +7,6 @@ type SectionsContextType = {
   flavorsRef: React.RefObject<HTMLDivElement | null>;
   sceneViewRef: React.RefObject<HTMLDivElement | null>;
   fallRef: React.RefObject<HTMLDivElement | null>;
-  carouselRef: React.RefObject<HTMLDivElement | null>;
 };
 
 const SectionsContext = createContext<SectionsContextType | null>(null);
@@ -21,10 +20,9 @@ export function SectionsProvider({ children }: Props) {
   const flavorsRef = useRef<HTMLDivElement>(null);
   const sceneViewRef = useRef<HTMLDivElement>(null);
   const fallRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
 
   return (
-    <SectionsContext.Provider value={{ heroRef, flavorsRef, sceneViewRef, fallRef, carouselRef }}>
+    <SectionsContext.Provider value={{ heroRef, flavorsRef, sceneViewRef, fallRef }}>
       {children}
     </SectionsContext.Provider>
   );

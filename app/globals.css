@@ -19,7 +19,7 @@ canvas {
 }
 
 .headline {
-  @apply text-4xl font-bold sm:text-6xl md:text-8xl;
+  @apply text-4xl font-bold sm:text-5xl md:text-7xl;
 
   & span {
     @apply text-white drop-shadow-[0_2px_2px_#0A0820];

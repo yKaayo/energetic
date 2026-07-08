@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { Group } from "three";
 
 // Lib
-import gsap from "@/lib/gsap";
+import gsap, { ScrollTrigger } from "@/lib/gsap";
 
 // Context
 import { useSections } from "@/contexts/SectionsContext";
@@ -93,9 +93,14 @@ const Fall = () => {
   useGSAP(
     () => {
       if (!ready) return;
-
       initialAnim();
       timelineAnim();
+
+      const raf = requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+
+      return () => cancelAnimationFrame(raf);
     },
     { scope: fallRef, dependencies: [ready] },
   );
